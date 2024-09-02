@@ -9,11 +9,21 @@ Conda is an open-source package management and environment management system tha
 
 To begin using conda, you will likely need to install bioconda [here](https://bioconda.github.io/).
 
-## Example install
-Using Conda for an analysis often begins with creating an environment within which to install software. Creating an environment can be as simple as 
+## Example conda usage
+Using Conda for an analysis often begins with creating an environment within which to install software. Creating an environment can be as simple as the following
 
 ```bash
 conda create -n my_env
+```
+Once you create an environment, you will need to activate it. 
+
+```bash
+conda activate my_env
+```
+You are now in a virtual environment and can install things easily. 
+
+```bash
+conda install mamba
 ```
 
 However you will often want something a bit more complex, possibly installing multiple different packages along the way. Here is a more complex example.
