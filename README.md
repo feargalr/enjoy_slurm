@@ -77,3 +77,8 @@ grep -P "seqID[1-9][0-9]\t" input.txt
 # This searches for lines that do NOT contain seqID followed by a number 5, and then a tab character.
 grep -P -v "seqID5\t" input.txt
 ````
+Awk for filtering a file based on columns (can be useful for large tables, e.g. large BLASTn outputs. 
+```bash
+#Filters the 3rd column to be greater than 90 and the 11th columns to be less than 0.0005. Assumes tab delimited.
+awk '$3 > 90 && $11 < 0.0005' blast_output.txt
+```
