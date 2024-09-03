@@ -1,5 +1,7 @@
 # enjoy_slurm
-A collection of SLURM scripts from over the years for various analyses. "SLURM - It's Highly Addictive!"
+This repository contains a collection of SLURM scripts, bash onelines and various tips and tricks from over the years. 
+
+"SLURM - It's Highly Addictive!"
 
 ## What is SLURM?
 SLURM (Simple Linux Utility for Resource Management) is an open-source workload manager designed for Linux clusters. It manages job scheduling, resource allocation, and job execution across a cluster of computers, making it essential for running large-scale computational tasks efficiently.
