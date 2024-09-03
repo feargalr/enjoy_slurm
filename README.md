@@ -33,3 +33,47 @@ conda create -n metagen_assembly -c conda-forge -c bioconda metabat2 spades gtdb
 ```
 The `-y` flag in a Conda command is used to automatically confirm the installation or action without prompting the user for confirmation. 
 `--solver=libmamba`: This flag tells Conda to use the libmamba solver, which is known for faster dependency resolution and better handling of complex dependency conflicts.
+
+## Useful oneliners
+
+Converting a fastq to a fasta with sed 
+```bash
+sed -n '1~4s/^@/>/p;2~4p' input.fastq > output.fasta
+```
+
+Count sequence length in fasta file
+```bash
+awk '/^>/ {if (seqlen){print seqlen}; seqlen=0; next} {seqlen += length($0)} END {print seqlen}' input.fasta
+```
+
+Count reads in a fasta file
+```bash
+grep -c ">" input.fasta
+```
+
+Count reads in a fastq file. Don't just count instances of the "@" symbol as this can appear in the quality scores line. This uses the number of records (NR) function within awk and divdes by 4. 
+```bash
+awk 'END {print NR/4}' input.fastq
+```
+
+Grep using regular expressions
+
+```bash
+# This searches for instances of seqID followed by either 1, 2, 3, or 4 and then a tab character.
+grep -P "seqID[1234]\t" input.txt
+
+# This searches for instances of seqID followed by any number 0-9 and then a tab character.
+grep -P "seqID[0-9]\t" input.txt
+
+# This searches for instances of seqID followed by any two numbers (0-9) and then a tab character.
+grep -P "seqID[0-9][0-9]\t" input.txt
+
+# This searches for instances of seqID followed by any three numbers (0-9) and then a tab character.
+grep -P "seqID[0-9]{3}\t" input.txt
+
+# This searches for instances of seqID followed by a specific range of numbers, 10 to 99, and then a tab character.
+grep -P "seqID[1-9][0-9]\t" input.txt
+
+# This searches for lines that do NOT contain seqID followed by a number 5, and then a tab character.
+grep -P -v "seqID5\t" input.txt
+````
