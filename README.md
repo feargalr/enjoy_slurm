@@ -1,5 +1,5 @@
 # enjoy_slurm
-This repository contains a collection of SLURM scripts, bash onelines and various tips and tricks from over the years. 
+This repository contains a collection of SLURM scripts, bash one-liners and various tips and tricks from over the years. 
 
 "SLURM - It's Highly Addictive!"
 
