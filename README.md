@@ -79,6 +79,24 @@ grep -P -v "seqID5\t" input.txt
 ````
 Awk for filtering a file based on columns (can be useful for large tables, e.g. large BLASTn outputs. 
 ```bash
-#Filters the 3rd column to be greater than 90 and the 11th columns to be less than 0.0005. Assumes tab delimited.
+#Filters the 3rd column to be greater than 90 and the 11th columns to be less than 0.0005. Assumes columns separated by whitespace (spaces or tabs).)
 awk '$3 > 90 && $11 < 0.0005' blast_output.txt
 ```
+
+Sed for substitution 
+
+```bash
+#Substitute SeqID with SequenceID
+sed 's/SeqID/SequenceID/' input.txt > output.txt
+
+#Substitute SeqID with SequenceID for all instances (note the above example will only do the first one on each line). 
+sed 's/SeqID/SequenceID/g' input.txt > output.txt
+
+#Substitute all instances by an underscore followed by multiple numbers with nothing. 
+sed 's/_[0-9]*//' input.txt > output.txt
+
+#Remove white space from a fasta file on the sequences only, does not per substitution on the header line (i.e. beginning with ">")
+sed '/^>/!{ :a; N; s/\n//; ta }' input.fasta > output.fasta
+```
+
+
