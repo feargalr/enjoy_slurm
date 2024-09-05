@@ -102,3 +102,10 @@ sed '/^>/!{ :a; N; s/\n//; ta }' input.fasta > output.fasta
 ```
 
 
+Awk for substitution 
+
+```bash
+#Replaces the original header with a new one, formatted as >gene1, >gene2, etc., incrementing i with each new sequence header
+awk '/^>/{print ">gene" ++i; next}{print}' input.fasta > output.fasta
+
+```
