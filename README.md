@@ -109,3 +109,7 @@ Awk for substitution
 awk '/^>/{print ">gene" ++i; next}{print}' input.fasta > output.fasta
 
 ```
+
+
+### Tutorials
+https://sandbox.bio/tutorials/seqkit-intro
