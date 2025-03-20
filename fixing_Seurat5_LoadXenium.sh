@@ -2,8 +2,8 @@
 
 # Author: Feargal J. Ryan
 # Date 2025 - 03 - 20
-# The LoadXenium function has stopped working with the latest xenium output
-# This script fixes that
+# The LoadXenium function in Seurat5 has stopped working with the latest xenium output
+# This script fixes that by converting Parquet format to csv, then renaming columns. 
 # It relies on https://github.com/hangxie/parquet-tools
 
 # Step 1: Convert Parquet to CSV
